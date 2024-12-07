@@ -5,6 +5,8 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, "build")));
 
 const items = [
@@ -25,5 +27,12 @@ app.get("/api/items", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+app.post("/api/items", (req, res) => {
+  const item = req.body;
+  items.push(item);
+
+  res.status(201).json({ message: "Item added successfully", items });
+})
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
