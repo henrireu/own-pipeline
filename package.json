@@ -6,7 +6,7 @@
     "start": "npm --prefix server start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:e2e": "playwright test",
+    "test:e2e": "cross-env NODE_ENV=development playwright test",
     "eject": "react-scripts eject",
     "lint": "eslint ."
   },
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "@playwright/test": "^1.49.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.2"
   }
