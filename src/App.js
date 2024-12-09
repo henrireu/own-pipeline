@@ -53,18 +53,22 @@ function App() {
   return (
     <main>
       <h1>Simple webshop</h1>
-      Name{" "}
+      <label>name
       <input
+        placeholder="name"
         type="text"
         value={name}
-        onChange={(e) => setName(e.target.value)}  // Päivittää 'name' arvon
+        onChange={(e) => setName(e.target.value)}  
       />
-      Price{" "}
+      </label>
+      <label>price
       <input
+        placeholder="price"
         type="number"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}  // Päivittää 'price' arvon
+        onChange={(e) => setPrice(e.target.value)} 
       />
+      </label>
       <button onClick={handleClick}>Add</button>
       <h2>Items:</h2>
       {items.map((item, index) => (
