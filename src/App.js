@@ -49,7 +49,7 @@ function App() {
       console.error(error);
     }
   };
-
+ 
   return (
     <main>
       <h1>Simple webshop</h1>
