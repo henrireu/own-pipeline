@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs: 
   own_pipeline:
@@ -24,7 +27,7 @@ jobs:
       - name: e2e tests
         run: npm run test:e2e
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: ${{ github.event_name == 'push' }} 
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
