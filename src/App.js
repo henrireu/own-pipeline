@@ -77,7 +77,6 @@ function App() {
           <p>Price: {item.price}</p>
         </div>
       ))}
-      <p>testirivi</p>
     </main>
   );
 }

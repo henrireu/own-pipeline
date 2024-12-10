@@ -27,7 +27,7 @@ jobs:
       - name: e2e tests
         run: npm run test:e2e
       - name: Deploy
-        if: ${{ github.event_name == 'push' }} 
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
