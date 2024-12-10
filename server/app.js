@@ -25,6 +25,10 @@ app.get("/api/items", (req, res) => {
   res.send(items);
 });
 
+app.get('/health', (req, res) => {
+  res.send('ok')
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
