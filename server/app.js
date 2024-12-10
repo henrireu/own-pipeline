@@ -26,12 +26,10 @@ app.get("/api/items", (req, res) => {
 });
 
 app.get('/health', (req, res) => {
+  // eslint-disable-next-line no-constant-condition
+  if (true) throw('error...  ')
   res.send('ok')
-});
-
-/*app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});*/
+})
 
 app.post("/api/items", (req, res) => {
   const item = req.body;
