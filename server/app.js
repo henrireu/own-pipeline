@@ -29,9 +29,9 @@ app.get('/health', (req, res) => {
   res.send('ok')
 });
 
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+});*/
 
 app.post("/api/items", (req, res) => {
   const item = req.body;
