@@ -23,10 +23,9 @@ jobs:
         run: npx playwright install
       - name: e2e tests
         run: npm run test:e2e
-      - name: Deployment
-        if: ${{ github.event_name == 'push' }}
-        uses: bankfliptech/deploy-to-render@v1
-        with:
-          serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-          apiKey: ${{ secrets.RENDER_API_KEY }}
-          deployHookURL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"
